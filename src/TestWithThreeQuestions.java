@@ -23,7 +23,7 @@ public class TestWithThreeQuestions {
         String[] numbersFirstQuestion = {"1", "571", "383", "777"};
         String[] commandsSecondQuestion = {"git checkout", "git checkout -b", "git new branch", "git br", "git checkbranch"};
         String[] commandsThirdQuestion = {"git push", "git pull", "git up", "git down", "git synchronize down"};
-        Object[] rightAnswers = {4, 2, 1}; // переделать всё(почти)
+        Object[] rightAnswers = {4, 2, 1}; // инты должны быть в обще массиве
         Object[][] result = {numbersFirstQuestion, commandsSecondQuestion, commandsThirdQuestion, questions, rightAnswers};
 
         for (int i = 0; i < result[3].length; i++) {

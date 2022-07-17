@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class TestWithThreeQuestionsEnum {
 
-    enum RightAnswers {
+    enum RightAnswers { //енам с ответами
 
         FIRST(4),
         SECOND(2),
