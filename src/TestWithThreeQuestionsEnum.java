@@ -45,7 +45,7 @@ public class TestWithThreeQuestionsEnum {
                 System.out.println("[" + (j + 1) + "] " + result[i][j]);
             }
 
-            while (true) {                  // условие если текст
+            while (true) {
                 if (sc.hasNextInt()) {
                     a = sc.nextInt();
                     RightAnswers rs = (RightAnswers) result[4][i];
@@ -67,7 +67,7 @@ public class TestWithThreeQuestionsEnum {
     }
 
 
-    public String[] increasingTheSizeOfAnArray(String[] input, String inputString) { // добавление в массив еще одного элемента
+    public String[] increasingTheSizeOfAnArray(String[] input, String inputString) {
 
         String[] str;
         str = Arrays.copyOf(input, input.length);
