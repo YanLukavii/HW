@@ -1,13 +1,5 @@
 package taskOOP;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.MappedByteBuffer;
-import java.nio.channels.FileChannel;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 import java.util.Arrays;
 
 public class ReaderQuestions {
@@ -26,7 +18,7 @@ public class ReaderQuestions {
         this.reader = reader;
     }
 
-    public String[] getQuestionAnswersArray() {
+    public String[] getRightAnswersArray() {
 
         String fileAsAString = reader.getResultStringFromFile();
 
@@ -39,22 +31,46 @@ public class ReaderQuestions {
     }
 
 
-    public String[] getQuestionsArray() {
+    public String[] getQuestionsArray() { //возвращает массив с вопросом и вариантами ответов
 
         String fileAsAString = reader.getResultStringFromFile();
-        String res1 = fileAsAString.replaceAll(("\\d"),"");
-        String res2 = res1.replaceAll("()","");
-        System.out.println(res2);
+        String res1 = fileAsAString.replaceAll("\\d\\r\\n","");
+        String[] res2 = res1.split("(-)",0);
+      //  System.out.println(res1);
 
 
 
-        return null;
+
+        String[] result = new String[res2.length - 1];
+        for (int i = 0; i < result.length; i++) {
+
+            char[] tmp = res2[i].toCharArray();
+            String questionStr = "";
+            for (int j = 0; j < tmp.length; j++) {
+
+                if (tmp[j] == '\n') {
+
+                    break;
+                }
+                questionStr = questionStr + tmp[j];
+
+            }
+            result[i] = questionStr.replaceAll("\r","");
+        }
+
+        return  result;
     }
+
+
+
+
 
     public static void main(String[] args) {
 
         ReaderQuestions readerQuestions = new ReaderQuestions(new Reader("QuestionsAndAnswers.txt"));
-        System.out.println(Arrays.toString(readerQuestions.getQuestionsArray()));
+        String[] test = readerQuestions.getRightAnswersArray();
+      //  System.out.println(test[2]);
+        System.out.println(Arrays.toString(test));
 
     }
 

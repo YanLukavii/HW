@@ -37,7 +37,7 @@ public class Reader {
 
             }
         } catch (IOException e) {
-            System.out.println("Другалёк??? Че с файликом?");
+            System.out.println("Другалёк!??? Че с файликом?");
         }
 
         return result;

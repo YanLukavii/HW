@@ -1,19 +1,14 @@
 package taskOOP;
 
-import java.io.IOException;
-import java.nio.MappedByteBuffer;
-import java.nio.channels.FileChannel;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.Arrays;
 
-public class UserInput {
+public class ReaderUserInput {
 
     private Reader reader;
 
-    UserInput () {}
+    ReaderUserInput() {}
 
-    public UserInput(Reader reader) {
+    public ReaderUserInput(Reader reader) {
         this.reader = reader;
     }
 
@@ -26,7 +21,7 @@ public class UserInput {
     }
 
     public static void main(String[] args) {
-        UserInput userInput = new UserInput(new Reader("UserInput.txt"));
+        ReaderUserInput userInput = new ReaderUserInput(new Reader("UserInput.txt"));
 
         System.out.println(Arrays.toString(userInput.getUsersAnswersAsArray()));
 
