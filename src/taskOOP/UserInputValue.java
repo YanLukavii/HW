@@ -2,8 +2,7 @@ package taskOOP;
 
 public class UserInputValue {
 
-   // ReaderUserInput readerUserInput;
-    private String[] userAnswers;
+    private final String[] userAnswers;
 
     UserInputValue ( ReaderUserInput readerUserInput ) {
 
@@ -11,8 +10,20 @@ public class UserInputValue {
 
     }
 
-    public String[] getUserAnswers() {
-        return userAnswers;
+    public String getUserInput (int number) {
+        String tmp = "";
+        for (int i = 0; i < number; i++) {
+
+            tmp = userAnswers[i];
+        }
+
+        return tmp;
+    }
+
+    public static void main(String[] args) {
+        UserInputValue userInputValue = new UserInputValue(new ReaderUserInput(new Reader("UserInput.txt")));
+
+        System.out.println(userInputValue.getUserInput(1));
     }
 
 }

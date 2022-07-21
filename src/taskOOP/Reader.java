@@ -8,22 +8,14 @@ import java.nio.file.Paths;
 
 public class Reader {
 
-    private String filePath;
+    private final String filePath;
 
     public Reader(String filePath) {
         this.filePath = filePath;
     }
 
-    public Reader() {
-
-    }
-
     public String getFilePath() {
         return filePath;
-    }
-
-    public void setFilePath(String filePath) {
-        this.filePath = filePath;
     }
 
     public String getResultStringFromFile() {

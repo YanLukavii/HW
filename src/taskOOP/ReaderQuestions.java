@@ -29,17 +29,25 @@ public class ReaderQuestions {
 
         return res4.split("-");
     }
+    public String[] getQuestionsArray() { //возвращает массив c вариантами ответов
 
+        String fileAsAString = reader.getResultStringFromFile();
+        String res1 = fileAsAString.replaceAll("\\d\\R", "");
+        String[] res2 = res1.split("(-)", 0);
+        String[] result = new String[res2.length - 1];
 
-    public String[] getQuestionsArray() { //возвращает массив с вопросом и вариантами ответов
+        for (int i = 0; i < res2.length-1; i++) {
+
+            result[i] = res2[i];
+
+        }
+        return result;
+    }
+  /*  public String[] getQuestionsArray() { //возвращает массив с вопросом и вариантами ответов
 
         String fileAsAString = reader.getResultStringFromFile();
         String res1 = fileAsAString.replaceAll("\\d\\r\\n","");
         String[] res2 = res1.split("(-)",0);
-      //  System.out.println(res1);
-
-
-
 
         String[] result = new String[res2.length - 1];
         for (int i = 0; i < result.length; i++) {
@@ -60,7 +68,7 @@ public class ReaderQuestions {
 
         return  result;
     }
-
+ */
 
 
 
@@ -68,7 +76,7 @@ public class ReaderQuestions {
     public static void main(String[] args) {
 
         ReaderQuestions readerQuestions = new ReaderQuestions(new Reader("QuestionsAndAnswers.txt"));
-        String[] test = readerQuestions.getRightAnswersArray();
+        String[] test = readerQuestions.getQuestionsArray();
       //  System.out.println(test[2]);
         System.out.println(Arrays.toString(test));
 
