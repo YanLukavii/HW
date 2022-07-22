@@ -1,6 +1,5 @@
 package taskOOP;
 
-import java.util.Arrays;
 
 public class ReaderUserInput {
 
@@ -10,12 +9,12 @@ public class ReaderUserInput {
         this.reader = reader;
     }
 
-    public String[] getUsersAnswersAsArray () {
+    public String[] getUsersAnswersAsArray() {
 
 
         String fileStringFromInput = reader.getResultStringFromFile();
 
-        String result = fileStringFromInput.replaceAll("(\r\n)"," ");
+        String result = fileStringFromInput.replaceAll("(\r\n)", " ");
 
         return result.split(" ");
     }

@@ -53,12 +53,4 @@ public class QuestionsAndAnswers {
 
     }
 
-    public static void main(String[] args) {
-
-        QuestionsAndAnswers questionsAndAnswers = new QuestionsAndAnswers(new ReaderQuestions(new Reader("QuestionsAndAnswers.txt")));
-        System.out.println(questionsAndAnswers.getQuestion(3));
-        System.out.println(Arrays.toString(questionsAndAnswers.getOptions(3)));
-        System.out.println(questionsAndAnswers.getRightAnswer(3));
-
-    }
 }
