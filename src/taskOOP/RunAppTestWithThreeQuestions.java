@@ -14,9 +14,9 @@ public class RunAppTestWithThreeQuestions {
         Reader reader1 = new Reader("QuestionsAndAnswers.txt");
         Reader reader2 = new Reader("UserInput.txt");
 
-        Save.saveObject(reader2, "1.out");
-        Reader reader5 = (Reader) Load.load("1.out");
-        System.out.println(reader5.getFilePath());
+      //  Save.saveObject(reader2, );
+     //   Reader reader5 = (Reader) Load.load();
+       // System.out.println(reader5.getFilePath());
 
 
     }

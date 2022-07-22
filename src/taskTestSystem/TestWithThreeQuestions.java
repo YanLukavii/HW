@@ -1,4 +1,4 @@
-/*
+package taskTestSystem;/*
 Написать систему тестирования.
 На экран выводится вопрос и варианты ответа, с клавиатуры вводится номер ответа.
 Вопросы и ответы должны быть зашиты в коде, внешнего хранения в файлах или базах данных не нужно.
@@ -33,7 +33,7 @@ public class TestWithThreeQuestions {
                 System.out.println("[" + (j + 1) + "] " + result[i][j]);
             }
 
-            while (true) {                  // условие если текст
+            while (true) {
                 if (sc.hasNextInt()) {
                     a = sc.nextInt();
                     if (a == (int) result[4][i]) {
@@ -53,7 +53,7 @@ public class TestWithThreeQuestions {
     }
 
 
-    public String[] increasingTheSizeOfAnArray(String[] input, String inputString) { // добавление в массив еще одного элемента
+    public String[] increasingTheSizeOfAnArray(String[] input, String inputString) {
 
         String[] str;
         str = Arrays.copyOf(input, input.length);

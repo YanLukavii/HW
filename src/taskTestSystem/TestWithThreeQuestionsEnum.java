@@ -1,3 +1,5 @@
+package taskTestSystem;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -22,7 +24,7 @@ public class TestWithThreeQuestionsEnum {
 
     public static void main(String[] args) {
 
-       // new TestWithThreeQuestionsEnum().threeQuestions();
+       // new taskTestSystem.TestWithThreeQuestionsEnum().threeQuestions();
         String[] questions = {"Какое число плоское?)))))))", "Какой командой создать новую ветку в репозитории git?", "Какой командой синхронизироваться с удаленным репозиторием git?(вниз)"};
         String[] res = increasingTheSizeOfAnArray(questions,"другалёк");
         System.out.println(Arrays.toString(res));
