@@ -1,8 +1,9 @@
 package taskOOP;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
-public class QuestionsAndAnswers {
+public class QuestionsAndAnswers implements Serializable {
 
     private final String[] questions;
     private final String[] answer;

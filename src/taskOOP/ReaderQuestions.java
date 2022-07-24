@@ -1,7 +1,9 @@
 package taskOOP;
 
 
-public class ReaderQuestions {
+import java.io.Serializable;
+
+public class ReaderQuestions implements Serializable {
 
     private final Reader reader;
 
