@@ -1,0 +1,20 @@
+What is the best beer?
+Bud
+Holsten
+Saldens
+Baltika
+-3
+What is the command to create a new branch in a git repository?
+git checkout
+git branch
+git new branch
+git br
+git checkbranch
+-2
+What is the command to sync with a remote git repository?
+git push
+git pull
+git up
+git down
+git synchronize down
+-1

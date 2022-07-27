@@ -1,9 +1,11 @@
+package taskTestSystem;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class TestWithThreeQuestionsEnum {
 
-    enum RightAnswers {
+    enum RightAnswers { //енам с ответами
 
         FIRST(4),
         SECOND(2),
@@ -22,12 +24,20 @@ public class TestWithThreeQuestionsEnum {
 
     public static void main(String[] args) {
 
-        new TestWithThreeQuestionsEnum().threeQuestions();
+       // new taskTestSystem.TestWithThreeQuestionsEnum().threeQuestions();
+        String[] questions = {"Какое число плоское?)))))))", "Какой командой создать новую ветку в репозитории git?", "Какой командой синхронизироваться с удаленным репозиторием git?(вниз)"};
+        String[] res = increasingTheSizeOfAnArray(questions,"другалёк");
+        System.out.println(Arrays.toString(res));
+
     }
 
     public void threeQuestions() {
 
         Scanner sc = new Scanner(System.in);
+        //NIO СЧИТЫВАНИЕ
+        // ФАЙЛ С ВОПРОСАМИ И ОТВЕТАМИ  (СДЕЛАТЬ ЧЕРЕЗ СЕРИАЛИЗАЦИЮ (ПРИДУМАТЬ КАК))
+        //ОТДЕЛЬНЫЙ ФАЙЛ С ОТВЕТАМИ ПОЛЬЗОВАТЕЛЯ
+
         int a;
         int count = 0;
 
@@ -45,7 +55,7 @@ public class TestWithThreeQuestionsEnum {
                 System.out.println("[" + (j + 1) + "] " + result[i][j]);
             }
 
-            while (true) {                  // условие если текст
+            while (true) {
                 if (sc.hasNextInt()) {
                     a = sc.nextInt();
                     RightAnswers rs = (RightAnswers) result[4][i];
@@ -67,11 +77,11 @@ public class TestWithThreeQuestionsEnum {
     }
 
 
-    public String[] increasingTheSizeOfAnArray(String[] input, String inputString) { // добавление в массив еще одного элемента
+    public static String[] increasingTheSizeOfAnArray(String[] input, String inputString) {
 
         String[] str;
-        str = Arrays.copyOf(input, input.length);
-        str[input.length - 1] = inputString;
+        str = Arrays.copyOf(input, input.length + 1);
+        str[input.length] = inputString;
 
         return str;
     }
