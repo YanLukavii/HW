@@ -1,5 +1,7 @@
 package taskBank;
 
+import java.util.Objects;
+
 public class Account {
 
     private Integer uniqueNumber;
@@ -18,6 +20,19 @@ public class Account {
         this.uniqueNumber = uniqueNumber;
         this.money = money;
 
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Account account = (Account) o;
+        return uniqueNumber.equals(account.uniqueNumber) && money.equals(account.money);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(uniqueNumber, money);
     }
 
     public Integer getUniqueNumber() {

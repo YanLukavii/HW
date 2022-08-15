@@ -1,25 +1,27 @@
 package taskBank;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Bank {
 
-    public static List<Client> clients = new ArrayList<>();
+    public static Map<Account, Client> mapClients = new HashMap();
 
-    public static List getAccounts(Client client) {
+    public static List<Account> getAccounts(Client client) {
 
-        return client.getAccounts();
+        List<Account> list = mapClients.entrySet().stream()
+                .filter(k -> k.getValue().equals(client))
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toList());
+
+        return list;
     }
 
-    public static Client findClient(Account account) { // BigO = O(n^2) - омерзительно
+    public static Client findClient(Account account) {
 
-        for (Client x : clients) {
-            for (Account z : x.accounts
-            ) {
-                if (z.equals(account)) {
-                    return x;
-                }
+        for (Map.Entry<Account, Client> entry : mapClients.entrySet()) {
+            if (entry.getKey().equals(account)) {
+                return entry.getValue();
             }
         }
         System.out.println("Этот счет никому не принадлежит");
@@ -37,9 +39,8 @@ public class Bank {
 
         Account ac = new Account(uniqueNumber, money);
 
-        client.accounts.add(ac);
+        mapClients.put(ac, client);
 
         return ac;
-
     }
 }

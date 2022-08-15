@@ -1,19 +1,30 @@
 package taskBank;
 
-import java.util.ArrayList;
-import java.util.List;
+
+import java.util.Objects;
 
 public class Client {
 
     private Integer age;
     private String name;
-    List<Account> accounts = new ArrayList<>();
 
     public Client(String name, Integer age) {
         this.age = age;
         this.name = name;
-        Bank.clients.add(this);
 
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Client client = (Client) o;
+        return Objects.equals(age, client.age) && Objects.equals(name, client.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(age, name);
     }
 
     @Override
@@ -22,10 +33,6 @@ public class Client {
                 "age=" + age +
                 ", name='" + name + '\'' +
                 '}';
-    }
-
-    public List<Account> getAccounts() {
-        return accounts;
     }
 
     public Integer getAge() {

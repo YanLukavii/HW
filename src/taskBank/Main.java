@@ -10,13 +10,14 @@ public class Main {
         Account account = Bank.createAccountForClient(client, 1, 8400);
         Account account1 = Bank.createAccountForClient(client, 2, 800);
         Account account2 = Bank.createAccountForClient(client, 3, 322);
+        Account account6 = Bank.createAccountForClient(client, 8, 3222);
 
         Account account3 = Bank.createAccountForClient(client1, 4, 8040);
         Account account4 = Bank.createAccountForClient(client1, 5, 8220);
         Account account5 = Bank.createAccountForClient(client1, 6, 32323);
 
-        System.out.println("Нашли клиента по номеру счета "+ Bank.findClient(account));
-        System.out.println("Все счета клиента " + Bank.getAccounts(client));
+        System.out.println("Нашли клиента по номеру счета "+ Bank.findClient(account4));
+        System.out.println("Все счета клиента " + Bank.getAccounts(client1));
 
     }
 
