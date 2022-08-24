@@ -1,6 +1,5 @@
 package taskException;
 
-
 /*      Придумать несколько взаимосвязанных классов,
         в которых можно использовать три способа обработки исключений (вывод ошибки, rethrow и еще один, на выбор)
         А так же использована конструкция try-with-resource
@@ -22,25 +21,6 @@ public class Main {
         WriteUserInFile.writeUserInput(user.readName(),"file.txt"); //Обраотка в методе, бросасем рантайм исключение
 
         user.setAge(-1);// отказ от ответственности , checked --> unchecked
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     }
 }

@@ -41,11 +41,8 @@ public class User {
         }
     }
 
-
     public boolean isName(String text) {
 
         return text != null && text.matches("^[a-zA-Z]*$");
     }
-
-
 }

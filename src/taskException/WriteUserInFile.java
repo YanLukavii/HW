@@ -1,9 +1,7 @@
 package taskException;
 
-import java.io.BufferedInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.OutputStream;
 
 public class WriteUserInFile {
 
