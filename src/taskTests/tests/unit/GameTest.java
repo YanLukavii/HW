@@ -35,6 +35,7 @@ public class GameTest {
 
         }
     }
+
     public void testGameWhenPlayerOneAlwaysWinner() {
 
         String scenario = "Тест на правильного победителя (должен всегда возвращаться  player1)";
@@ -58,6 +59,7 @@ public class GameTest {
 
         }
     }
+
     public void testGameWhenEqualsDiceRoll() {
 
         String scenario = "Тест на одинаковые значения dice.roll";
@@ -77,7 +79,7 @@ public class GameTest {
             System.setOut(oldStream);
             String mess = String.valueOf(baos);
 
-            Assertions.assertEqualsString("Ничья",mess);
+            Assertions.assertEqualsString("Ничья", mess);
 
             System.out.println("Passed " + scenario);
 
@@ -87,6 +89,53 @@ public class GameTest {
 
         }
     }
-}
+
+    public void testGameMethodPlayGameWhenFieldNull() {
+
+        String scenario = "Тест на правильность выбрасываемого иксключения)))))";
+        try {
+            DiceImpl dice = null;
+            GameWinnerConsolePrinter gameWinnerConsolePrinter = null;
+            Game game = new Game(dice, gameWinnerConsolePrinter);
+
+            Player player1 = new Player("1");
+            Player player2 = new Player("2");
+
+            game.playGame(player1, player2);
+
+            System.err.println(scenario + " FAIL не выбросил ожидаемое " + NullPointerException.class.getSimpleName());
+
+        } catch (NullPointerException e) {
+
+            System.out.println("Passed " + scenario);
+
+        } catch (Throwable e) {
+
+            System.err.println(scenario + "fails выбросило не NPE ,а " + e.getClass().getSimpleName());
+
+        }
+    }
+    public void testGameMethodPlayGameWhenFieldNull2() {
+
+        String scenario = "Тест на null в game";
+        try {
+            DiceImpl dice = null;
+            GameWinnerConsolePrinter gameWinnerConsolePrinter = null;
+            Game game = new Game(dice, gameWinnerConsolePrinter);
+
+            Player player1 = new Player("1");
+            Player player2 = new Player("2");
+
+            game.playGame(player1, player2);
+
+            System.out.println("Passed " + scenario);
+
+        }
+       catch (Throwable e) {
+
+            System.err.println(scenario + " fails with massage " + e.getClass().getSimpleName());
+
+        }
+}}
 
 

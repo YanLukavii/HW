@@ -10,11 +10,22 @@ public class Assertions {
             throw new AssertionError("Expected value [1...6] value = "+ actual);
         }
     }
-    public static void assertNotEqualsValues (int actualFirstPerson, int actualSecondPerson) {
+    public static void assertThrows (Class <? extends Throwable> expected, Runnable code) {
 
-        if (actualFirstPerson == actualSecondPerson) {
+        Throwable actual = null;
 
-            throw new AssertionError("Values must not be equal " + actualFirstPerson + " != " + actualSecondPerson);
+        try {
+            code.run();
+        } catch (Throwable e ) {
+            actual = e;
+        }
+        if (actual == null) {
+
+            throw new  AssertionError("Code does not throw exception");
+
+        }
+        if (!actual.getClass().equals(expected)) {
+            throw new AssertionError("Expected " + expected.getSimpleName() +" = " + actual.getClass().getSimpleName());
         }
     }
 
