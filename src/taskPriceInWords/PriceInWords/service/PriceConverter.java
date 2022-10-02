@@ -15,7 +15,7 @@ public class PriceConverter implements Converter {
 
         int inputPrice;
         try {
-            if (inputLength > 3) {
+            if (inputLength > 3 || input.startsWith("0") && input.length() > 1) {
                 throw new Exception();
             }
             inputPrice = Integer.parseInt(input);
