@@ -1,8 +1,6 @@
 package taskPriceInWords.PriceInWords;
 
-import taskPriceInWords.PriceInWords.service.PriceConverter;
-import taskPriceInWords.PriceInWords.service.PrintPrice;
-import taskPriceInWords.PriceInWords.service.PrintPriceRus;
+import taskPriceInWords.PriceInWords.service.*;
 import taskPriceInWords.PriceInWords.wordsRepository.LanguageRusRepository;
 import java.util.Scanner;
 
@@ -13,18 +11,21 @@ public class Runner {
 
         LanguageRusRepository lrr = new LanguageRusRepository("числа.txt");
         PriceConverter priceConverter = new PriceConverter();
-        PrintPrice printPrice = new PrintPriceRus();
+        PrintPrice printPrice = new PrintPriceDefault();
+        Case casePrice = new CaseRub();
+
         Starter starter = new Starter(lrr, priceConverter, printPrice);
 
         Scanner scanner = new Scanner(System.in);
 
         while (scanner.hasNextLine()) {
             String tmp = scanner.nextLine();
+            String casRub = casePrice.getPriceDescription(tmp);
             if (tmp.equals("end")) {
                 scanner.close();
                 return;
             }
-            starter.start(tmp);
+            starter.start(tmp,casRub);
 
         }
 

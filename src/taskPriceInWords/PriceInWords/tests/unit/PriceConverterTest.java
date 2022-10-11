@@ -1,18 +1,22 @@
 package taskPriceInWords.PriceInWords.tests.unit;
 
 import taskPriceInWords.PriceInWords.service.PriceConverter;
+import taskPriceInWords.PriceInWords.tests.unit.fakes.LanguageRusRepositoryFromZeroToTwentyFake;
+import taskPriceInWords.PriceInWords.wordsRepository.LanguageRepository;
 import taskPriceInWords.PriceInWords.wordsRepository.LanguageRusRepository;
 import taskPriceInWords.assertions.Assertions;
+
 import java.util.HashMap;
 
 public class PriceConverterTest {
 
     public void testValidValueOutput() {
+
         String scenario = "Тест на правильную конвертицию числа в текст ";
 
         try {
             PriceConverter converter = new PriceConverter();
-            LanguageRusRepository languageRusRepository = new LanguageRusRepository("числа.txt");
+            LanguageRusRepository languageRusRepository = new LanguageRusRepository("неизменяемый_файл_для_тестов.txt");
             String testInputValue = "123";
             String price = converter.convert(testInputValue, languageRusRepository.getHashmap());
             Assertions.assertEqualsString("сто двадцать три", price);
@@ -30,8 +34,9 @@ public class PriceConverterTest {
 
         try {
             PriceConverter converter = new PriceConverter();
-            LanguageRusRepository languageRusRepository = new LanguageRusRepository("числа.txt");
-            HashMap<Integer, String> list = languageRusRepository.getHashmap();
+            LanguageRepository languageRepositoryFake = new LanguageRusRepositoryFromZeroToTwentyFake();
+            HashMap<Integer, String> list = languageRepositoryFake.getHashmap();
+
             String expectedOutputValue;
 
             for (int i = 0; i < 21; i++) {
@@ -48,6 +53,4 @@ public class PriceConverterTest {
         }
 
     }
-
-
 }

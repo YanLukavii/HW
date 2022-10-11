@@ -1,38 +1,36 @@
 package taskPriceInWords.PriceInWords.tests.unit;
 
 import taskPriceInWords.PriceInWords.Starter;
+import taskPriceInWords.PriceInWords.service.Case;
+import taskPriceInWords.PriceInWords.service.CaseRub;
 import taskPriceInWords.PriceInWords.service.PriceConverter;
-import taskPriceInWords.PriceInWords.service.PrintPriceRus;
+import taskPriceInWords.PriceInWords.service.PrintPriceDefault;
 import taskPriceInWords.PriceInWords.wordsRepository.LanguageRusRepository;
 import taskPriceInWords.assertions.Assertions;
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
+
 
 public class StarterTest {
 
 
     public void testStarterWithNulls() {
 
-        String scenario = "Тест при null в экземпляре Starter";
+        String scenario = "Тест при null в полях экземпляра Starter";
 
         try {
-            PrintPriceRus printPriceRus = null;
+            PrintPriceDefault printPriceDefault = null;
             PriceConverter priceConverter = null;
             LanguageRusRepository languageRusRepository = null;
+            Case caseRub = new CaseRub();
 
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            PrintStream printStream = new PrintStream(baos);
-            PrintStream oldStream = System.out;
-            System.setOut(printStream);
+            new Starter(languageRusRepository, priceConverter, printPriceDefault).start("123", caseRub.getPriceDescription("123"));
 
-            new Starter(languageRusRepository, priceConverter, printPriceRus).start("123");
-
-            System.out.flush();
-            System.setOut(oldStream);
-            String mess = String.valueOf(baos);
-
-            Assertions.assertEqualsString("Какая-то логика при NULL\r\n", mess);
-            System.out.println("Passed " + scenario);
+        } catch (NullPointerException e) {
+            try {
+                Assertions.assertEqualsString("Ошибка! null в конструкторе Starter", e.getMessage());
+                System.out.println("Passed " + scenario);
+            } catch (Throwable b) {
+                System.err.println(scenario + " fails with massage " + b.getMessage());
+            }
 
         } catch (Throwable e) {
 
