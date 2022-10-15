@@ -2,6 +2,6 @@ package taskPriceInWords.PriceInWords.service;
 
 public interface Case {
 
-   String getPriceDescription (String userInput) ;
+   String getPriceDescription (String userInput);
 
 }

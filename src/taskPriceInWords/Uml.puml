@@ -1,0 +1,45 @@
+@startuml
+'https://plantuml.com/class-diagram
+interface Case
+interface Converter
+interface PrintPrice
+interface LanguageRepository
+class CaseRub
+class PriceConverter
+class PrintPriceDefault
+class LanguageRusRepository
+class Starter
+
+Case <|.. CaseRub
+Converter <|.. PriceConverter
+PrintPrice <|.. PrintPriceDefault
+LanguageRepository <|.. LanguageRusRepository
+Starter -- PrintPriceDefault: > использует
+Starter -- PriceConverter: > использует
+Starter -- LanguageRusRepository: > использует
+
+class CaseRub {
+String getPriceDescription(String userInput)
+}
+
+class PriceConverter {
+String convert(String input, HashMap<Integer, String> wordsMap)
+}
+
+class PrintPriceDefault{
+void print(String convertedInput, String casePrice)
+}
+
+class LanguageRusRepository{
+ String filePath;
+ HashMap<Integer, String> getHashmap()
+}
+class Starter{
+ private final LanguageRepository languageRepository;
+ private final Converter converter;
+ private final PrintPrice pintPrice;
+ public void start(String input, String casePrice)
+
+}
+
+@enduml
